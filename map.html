@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Map</title>
+    </head>
+    <body>
+        <h1>lkjlk</h1>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.js"> </script>
+        <script>
+        var socket = io.connect('https://real.super-cab.com:5000');
+        socket.emit("join",5)
+        const data = {
+            registrationToken: "123123",
+            userId: 5,
+            pickupLat:31.2375034019351,
+            pickupLng:30.044263134225872,
+            pickupAddress: "abc",
+            dropoffLat: 30.044367093804823,
+            dropoffLng: 31.235717982314123,
+            dropoffAddress: "qwe",
+            promoCode: "",
+            categoryCarTypeID: 2,
+            cancelReasonID: 6,
+            paymentStatusID: 1,
+            token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiUGFzczE1MzMyMzU4OTIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIxMTAxIiwianRpIjoiMmYzZTc3NTItZTc1Yy00MTA4LTg2NTEtNDNhYmZlYTY0MmY1IiwiZXhwIjoxNjAzMTM2MjYyLCJpc3MiOiJodHRwczovL2Rldm1hY2hpbmUudGFrZXRvc2EuY29tIiwiYXVkIjoiaHR0cHM6Ly9kZXZtYWNoaW5lLnRha2V0b3NhLmNvbSJ9.N4rrOJLTJb0aulV62t6pDWF0VGy8qyF6zfq7l21NfD4",
+            maxDistance: 790.1836707231585,
+            Language:'en',
+            genderRequest:2,
+            isWalletPay:false,deviceType:2,lat:31.152303582058344,long:29.97651130585411,userid:5,
+            tripMasterID:1068
+        }
+       socket.emit("NewTripRequest",data)
+       socket.on("DriverResponded", data => alert(
+            data.message
+        ))
+  // socket.emit("GetAvailableDrivers",data)
+    </script>
+    </body>
+</html>

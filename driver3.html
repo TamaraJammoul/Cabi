@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.js"> </script>
+    <script>
+        var socket = io.connect('http://localhost:5000');
+        userid = 2
+        socket.emit("join", userid)
+        
+        socket.on('NewTripInfo', (data) => {
+            data2 = {
+            requestStatus: 2,
+            driverID: 2,
+            tripID: 1118
+        }
+        alert("kjhjk")
+            socket.emit("AcceptRejectTrip", data2);
+        })
+       
+
+    </script>
+</body>
+
+</html>
